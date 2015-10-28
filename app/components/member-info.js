@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  today: new Date(Date.now()),
+
   init: function() {
     this._super(...arguments);
     Trello.get('/members/' + this.get('member.id') + '/actions').then(
@@ -9,6 +11,7 @@ export default Ember.Component.extend({
       }
     );
   },
+
   activitiesOfToday: Ember.computed('activities', function() {
     if (!this.get('activities')) { return []; }
     return this.get('activities').filter((activity) => {
@@ -17,6 +20,7 @@ export default Ember.Component.extend({
       return dateOfActivity.toDateString() === today.toDateString();
     });
   }),
+
   activitiesOfTodayCount: Ember.computed('activitiesOfToday', function() {
     return this.get('activitiesOfToday').length;
   })

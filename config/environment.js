@@ -48,5 +48,7 @@ module.exports = function(environment) {
     'connect-src': "api.trello.com"
   };
 
+  ENV['trelloApplicationKey'] = '';
+
   return ENV;
 };

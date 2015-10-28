@@ -1,21 +1,3 @@
-<h2 id="title">Trello Organization Activities</h2>
-
-<button {{action 'authorize'}}>authorize</button>
-{{input value=organizationName}}
-<button {{action 'lookupOrganization'}}>organization</button>
-
-{{#if organization}}
-  {{organization-info
-    organization=organization
-    }}
-{{/if}}
-
-{{#if members}}
-  {{#each members as |member|}}
-    {{member-info
-      member=member
-      }}
-  {{/each}}
-{{/if}}
+{{trello-sdk}}
 
 {{outlet}}
