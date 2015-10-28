@@ -1,0 +1,7 @@
+{{#if activities}}
+  {{#each activities as |activity|}}
+    <li>{{activity.type}}({{activity.date}}:{{activity.date}}): {{activity.data.text}}</li>
+  {{/each}}
+{{else}}
+  <li>アクティビティはありません</li>
+{{/if}}
